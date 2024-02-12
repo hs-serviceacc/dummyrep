@@ -1,0 +1,19 @@
+name: Whoami
+on:
+  pull_request:
+  workflow_dispatch:
+  schedule:
+    - cron: '*/5 * * * *' # every 5 min
+
+jobs:
+  whoami:
+    runs-on: ubuntu-latest
+    timeout-minutes: 20
+    steps:
+      - name: Print event name
+        run: |
+          echo "this is event name: ${{ github.event_name }}"
+
+      - name: Print event name
+        run: |
+          echo "this is ref: ${{ github.ref }}"
